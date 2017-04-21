@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<html>
+    <head><html>
+        <head>
+            <title>sineup user</title>
+        </head>
+
+        <body>
+            <h1>Register with blog</h1>
+
+            {% if registered %}
+            vaibhav says: <strong>thank you for registering!</strong>
+            <a href="/blog/">Return to the homepage.</a><br />
+            {% else %}
+            vaibhav says: <strong>register here!</strong><br />
+
+            <form id="form" method="post" action="/blog/signup/">
+
+                {% csrf_token %}
+                {{ user_form.as_p }}
+
+                <!-- Provide a button to click to submit the form. -->
+                <input type="submit" name="submit" value="Register" />
+            </form>
+            {% endif %}
+        </body>
+        </html>
