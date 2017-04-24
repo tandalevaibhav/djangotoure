@@ -2,7 +2,7 @@
 <html>
     <head><html>
         <head>
-            <title>sineup user</title>
+            <title>signup user</title>
         </head>
 
         <body>
@@ -14,7 +14,7 @@
             {% else %}
             vaibhav says: <strong>register here!</strong><br />
 
-            <form id="form" method="post" action="/blog/signup/">
+            <form id="form" method="post" action="{% url 'signup' %}">
 
                 {% csrf_token %}
                 {{ user_form.as_p }}
@@ -23,5 +23,5 @@
                 <input type="submit" name="submit" value="Register" />
             </form>
             {% endif %}
-        </body>
-        </html>
+   </body>
+</html>

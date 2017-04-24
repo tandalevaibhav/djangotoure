@@ -6,7 +6,7 @@ from .models import Post
 class PostForm(forms.ModelForm):
     class Meta:
           model = Post
-          fields = ('title', 'text',)
+          fields = ('author','title', 'text',)
 
 class UserForm(forms.ModelForm):
     password=forms.CharField(widget=forms.PasswordInput())

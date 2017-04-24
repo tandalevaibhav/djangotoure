@@ -31,13 +31,15 @@ def post_new(request):
 def signup(request):
     context = RequestContext(request)
     registered = False
-    if request.method== 'POST':
+    if request.method == 'POST':
         form=UserForm(request.POST)
         if form.is_valid():
             user=form.save(commit=False)
             user.set_password(user.password)
             user.save()
             register=True
+            posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+            return render('blog/post_list.html',{'posts':posts})
         else:
             print(form.errors)
 
@@ -58,3 +60,5 @@ def post_remove(request, pk):
         post = get_object_or_404(Post, pk=pk)
         post.delete()
         return redirect('post_list')
+
+    
