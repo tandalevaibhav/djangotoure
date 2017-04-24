@@ -5,7 +5,7 @@ from .forms import PostForm,UserForm
 from django.shortcuts import redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-
+from django.http import HttpResponse
 
 # Create your views here.
 def post_list(request):
@@ -38,8 +38,11 @@ def signup(request):
             user.set_password(user.password)
             user.save()
             register=True
-            posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-            return render('blog/post_list.html',{'posts':posts})
+            #posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+            #return render('blog/post_list.html',{'posts':posts})
+            return redirect('/')
+            #html="<html><h2>User Successfully Created<h2><Br><a href="/">back</a></html>"
+            #return HttpResponse(html)
         else:
             print(form.errors)
 

@@ -1,6 +1,5 @@
-{% load staticfiles %}
-<html>
-    <head><html>
+{% extends 'blog/base.html' %}
+{% block content %}
         <head>
             <title>signup user</title>
         </head>
@@ -21,7 +20,8 @@
 
                 <!-- Provide a button to click to submit the form. -->
                 <input type="submit" name="submit" value="Register" />
+                <h1>please,login after register</h1>
             </form>
             {% endif %}
-   </body>
-</html>
+        </body>
+{% endblock %}
