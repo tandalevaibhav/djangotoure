@@ -40,7 +40,7 @@ def signup(request):
             register=True
             #posts=Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
             #return render('blog/post_list.html',{'posts':posts})
-            return redirect('/')
+            return redirect('login')
             #html="<html><h2>User Successfully Created<h2><Br><a href="/">back</a></html>"
             #return HttpResponse(html)
         else:
