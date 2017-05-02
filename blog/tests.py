@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
-def test_abc(self):
-    print("leter")
-
+################ Create your tests here.
+def abc(self):
+    pass
+###############
